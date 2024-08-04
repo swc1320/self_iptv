@@ -131,28 +131,28 @@ def check_string_in_list(string, string_list):
     return out
 
 def main(m3u_file, output_base, output_file):
-#    resolution_files = {}
-#    tasks = []
-#
-#    with open(m3u_file, 'r', encoding='utf-8') as file:
-#        lines = file.readlines()
-#
-#    with ThreadPoolExecutor(max_workers=20) as executor:
-#        for line in lines:
-#            parts = line.strip().split(',')
-#            if len(parts) >= 2:
-#                name, url = parts[0], parts[1]
-#                future = executor.submit(test_single_stream, name, url)
-#                tasks.append(future)
-#
-#        for future in tqdm(as_completed(tasks), total=len(tasks)):
-#            result = future.result()
-#            if result:
-#                write_to_files(result, output_base, resolution_files)
-#
-#    # 关闭所有文件
-#    for file in resolution_files.values():
-#        file.close()
+    resolution_files = {}
+    tasks = []
+
+    with open(m3u_file, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+
+    with ThreadPoolExecutor(max_workers=20) as executor:
+        for line in lines:
+            parts = line.strip().split(',')
+            if len(parts) >= 2:
+                name, url = parts[0], parts[1]
+                future = executor.submit(test_single_stream, name, url)
+                tasks.append(future)
+
+        for future in tqdm(as_completed(tasks), total=len(tasks)):
+            result = future.result()
+            if result:
+                write_to_files(result, output_base, resolution_files)
+
+    # 关闭所有文件
+    for file in resolution_files.values():
+        file.close()
 
     # 指定目录路径和输出文件名
     directory = "./"
