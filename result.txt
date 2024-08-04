@@ -1,0 +1,6 @@
+央视频道,#genre#
+CCTV1,aaaaaaaaaaaaaaaaaaaaa
+卫视频道,#genre#
+少儿频道,#genre#
+历年春晚,#genre#
+其他,#genre#
