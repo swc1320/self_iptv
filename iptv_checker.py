@@ -137,7 +137,7 @@ def main(m3u_file, output_base, output_file):
     with open(m3u_file, 'r', encoding='utf-8') as file:
         lines = file.readlines()
 
-    with ThreadPoolExecutor(max_workers=20) as executor:
+    with ThreadPoolExecutor(max_workers=5) as executor:
         for line in lines:
             parts = line.strip().split(',')
             if len(parts) >= 2:
