@@ -125,8 +125,8 @@ def check_string_in_list(string, string_list):
         if ',#genre#' in str:
             tmp.append(str)
         else:
-            tmp = [item for item in string_list if str+',' in item]
             #tmp = [item for item in string_list if str+',' in item]
+            tmp = [item for item in string_list if item.startswith(str + ',')]
         out.extend(tmp)
     return out
 
